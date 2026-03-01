@@ -1,0 +1,4 @@
+node_modules
+test-output.txt
+testAsk.js
+ai/last_llm_response.json

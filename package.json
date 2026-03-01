@@ -1,0 +1,32 @@
+{
+  "name": "ai-wdio-agent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio run ./wdio.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saurav-Chakraborty7/ai-wdio-agent.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Saurav-Chakraborty7/ai-wdio-agent/issues"
+  },
+  "homepage": "https://github.com/Saurav-Chakraborty7/ai-wdio-agent#readme",
+  "devDependencies": {
+    "@wdio/cli": "^9.24.0",
+    "@wdio/local-runner": "^9.24.0",
+    "@wdio/mocha-framework": "^9.24.0",
+    "@wdio/spec-reporter": "^9.24.0"
+  },
+  "dependencies": {
+    "axios": "^1.13.5",
+    "dotenv": "^17.3.1",
+    "node-fetch": "^3.3.2"
+  }
+}
