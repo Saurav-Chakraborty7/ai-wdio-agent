@@ -1,0 +1,6 @@
+Complete the login process:
+1. Find the username input field and enter: standard_user
+2. Find the password input field and enter: secret_sauce
+3. Click the login button
+
+Look for inputs by their id, name, or placeholder attributes. Check the DOM carefully for exact field IDs and button labels.
