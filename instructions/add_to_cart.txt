@@ -1,0 +1,19 @@
+CLICK THE "ADD TO CART" BUTTON - NOT ANY OTHER BUTTON.
+
+RULES:
+1. Look ONLY for buttons with "add-to-cart" in the id
+2. Ignore all other buttons (menu, logout, etc)
+3. Copy the id attribute EXACTLY as shown
+4. Use the FIRST button with "add-to-cart" in its id
+5. Format: {"type": "click", "selector": "#exact-id"}
+
+WHAT TO LOOK FOR:
+- Button with id containing "add-to-cart-"
+- Its text will say "Add to cart"
+
+WHAT TO IGNORE:
+- Menu buttons, logout buttons, any other buttons
+- Only select if id contains "add-to-cart"
+
+Return ONLY:
+{"actions": [{"type": "click", "selector": "#add-to-cart-XXXXX"}]}

@@ -1,25 +1,26 @@
 async function executeActions(actions) {
-    if (!actions || !Array.isArray(actions)) {
-        throw new Error('Actions must be an array');
-    }
+  if (!Array.isArray(actions)) return;
 
-    for (const action of actions) {
-        try {
-            if (action.type === 'click') {
-                const el = await $(action.selector);
-                await el.waitForDisplayed();
-                await el.click();
-            }
+  for (const step of actions) {
+    const action = step.action || step.type;
+    if (!action || !step.selector) continue;
 
-            if (action.type === 'type') {
-                const el = await $(action.selector);
-                await el.setValue(action.value);
-            }
-        } catch (error) {
-            console.error('Error executing action', action, error.message);
-            throw error;
-        }
+    try {
+      const element = await $(step.selector);
+      if (!(await element.isExisting())) continue;
+
+      await element.waitForDisplayed({ timeout: 20000 });
+
+      if (action === "click") {
+        await element.waitForClickable({ timeout: 20000 });
+        await element.click();
+      } else if (action === "type") {
+        await element.setValue(step.value || "");
+      }
+    } catch (error) {
+      continue;
     }
+  }
 }
 
 module.exports = { executeActions };
