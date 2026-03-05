@@ -196,8 +196,9 @@ exports.config = {
      * Hook that gets executed before the suite starts
      * @param {object} suite suite details
      */
-    // beforeSuite: function (suite) {
-    // },
+    beforeSuite: async function (suite) {
+        browser.maximizeWindow();
+    },
     /**
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */

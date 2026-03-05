@@ -1,19 +1,18 @@
-const fs = require('fs');
-const { askLLM } = require('../../ai/llmClient');
-const { buildPrompt } = require('../../ai/promptBuilder');
-const { executeActions } = require('../../executor/actionExecutor');
+const { runAIInstruction } = require("../../ai/instructionRunner");
+const { extractCleanDOM, extractVisibleButtonsDOM } = require("../../executor/domExtractor");
 
-describe('AI Driven Test', () => {
+describe("AI Driven Full Flow", () => {
+  it("Login + Add To Cart", async function () {
+    this.timeout(900000);
 
-    it('TC-001: Should execute instructions via AI', async () => {
-        await browser.url('https://www.saucedemo.com/');
+    await browser.url("https://www.saucedemo.com/");
+    await runAIInstruction(extractCleanDOM, "login.txt");
 
-        const instruction = fs.readFileSync('./instructions/login.txt', 'utf-8');
-        const dom = await browser.getPageSource();
-        const prompt = buildPrompt(dom, instruction);
-        const llmResponse = await askLLM(prompt);
-        const parsed = JSON.parse(llmResponse);
-        await executeActions(parsed.actions);
-    });
+    const inventory = await $(".inventory_list");
+    await inventory.waitForDisplayed({ timeout: 30000 });
+    await browser.pause(1000);
 
+    await runAIInstruction(extractVisibleButtonsDOM, "add_to_cart.txt");
+    await browser.pause(5000);
+  });
 });

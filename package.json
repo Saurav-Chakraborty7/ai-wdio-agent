@@ -23,6 +23,7 @@
     "@wdio/local-runner": "^9.24.0",
     "@wdio/mocha-framework": "^9.24.0",
     "@wdio/spec-reporter": "^9.24.0"
+    
   },
   "dependencies": {
     "axios": "^1.13.5",
