@@ -9,7 +9,6 @@ async function runAIInstruction(domExtractor, instructionFile) {
 
   let parsed;
   if (instructionFile === "add_to_cart.txt") {
-    // Find all add-to-cart button ids
     const idMatches = dom.match(/id="([^"]*add-to-cart[^"]*)"/g);
     if (!idMatches || idMatches.length === 0) {
       parsed = { actions: [] };
@@ -17,7 +16,6 @@ async function runAIInstruction(domExtractor, instructionFile) {
       const ids = idMatches.map(match => match.match(/id="([^"]*)"/)[1]);
       const randomIndex = Math.floor(Math.random() * ids.length);
       const randomId = ids[randomIndex];
-      console.log(`Adding product at index ${randomIndex + 1} to cart`);
       parsed = { actions: [{ type: "click", selector: "#" + randomId }] };
     }
   } else {

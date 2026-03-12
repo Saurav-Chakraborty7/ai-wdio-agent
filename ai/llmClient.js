@@ -7,7 +7,6 @@ const CACHE_PATH = path.join(__dirname, "last_llm_response.json");
 async function askLLM(prompt, retries = 2) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
-      console.log(`Sending to Ollama (attempt ${attempt}/${retries})...`);
       const response = await axios.post(
         "http://localhost:11434/api/generate",
         {
@@ -26,7 +25,6 @@ async function askLLM(prompt, retries = 2) {
 
       const cleanJson = resText.substring(start, end + 1).trim();
       fs.writeFileSync(CACHE_PATH, cleanJson, "utf8");
-      console.log("✓ LLM response processed");
       return cleanJson;
     } catch (error) {
       if (attempt === retries) throw error;
