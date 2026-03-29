@@ -1,0 +1,7 @@
+Click the shopping cart link to open the cart.
+
+RULES:
+1. The shopping cart link has the class "shopping_cart_link".
+2. You MUST return ONLY valid JSON and absolutely NO comments, NO markdown, NO ellipses, and NO extra text.
+3. Return exactly this format:
+{"actions": [{"type": "click", "selector": ".shopping_cart_link"}]}

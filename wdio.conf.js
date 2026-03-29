@@ -128,7 +128,7 @@ exports.config = {
     mochaOpts: {
         ui: 'bdd',
         // tests call out to an LLM and may take longer than the default 60s
-        timeout: 120000
+        timeout: 900000
     },
 
     //
