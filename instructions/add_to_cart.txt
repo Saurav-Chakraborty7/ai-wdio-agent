@@ -1,19 +1,5 @@
-CLICK THE "ADD TO CART" BUTTON - NOT ANY OTHER BUTTON. OPEN HAMBURGER MENU AND CLICK ON RESET APP STATE.
+Click a random "Add to Cart" button on the inventory page.
 
-RULES:
-1. Look ONLY for buttons with "add-to-cart" in the id
-2. Ignore all other buttons (menu, logout, etc)
-3. Copy the id attribute EXACTLY as shown
-4. Use the FIRST button with "add-to-cart" in its id
-5. Format: {"type": "click", "selector": "#exact-id"}
-
-WHAT TO LOOK FOR:
-- Button with id containing "add-to-cart-"
-- Its text will say "Add to cart"
-
-WHAT TO IGNORE:
-- Menu buttons, logout buttons, any other buttons
-- Only select if id contains "add-to-cart"
-
-Return ONLY:
-{"actions": [{"type": "click", "selector": "#add-to-cart-XXXXX"}]}
+NOTE: This instruction is not sent to the LLM. The add_to_cart step is handled
+directly in instructionRunner.js by selecting a random add-to-cart button from
+the DOM for reliability.
