@@ -151,8 +151,6 @@ Look for inputs by their id, name, or placeholder attributes.
 | Package | Version | Purpose |
 |---|---|---|
 | `axios` | ^1.13.5 | HTTP client for calling the Ollama API |
-| `dotenv` | ^17.3.1 | Environment variable support |
-| `node-fetch` | ^3.3.2 | Fetch API for Node.js |
 
 ---
 

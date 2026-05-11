@@ -10,12 +10,9 @@ describe("AI Driven Full Flow", () => {
 
     const inventory = await $(".inventory_list");
     await inventory.waitForDisplayed({ timeout: 30000 });
-    await browser.pause(1000);
 
     await runAIInstruction(extractVisibleButtonsDOM, "add_to_cart.txt");
-    await browser.pause(2000);
 
     await runAIInstruction(extractCleanDOM, "open_cart.txt");
-    await browser.pause(5000);
   });
 });
